@@ -1,0 +1,62 @@
+1. Repository - egy virtualis raktar ami eltarolja a projekteket, viszont tobbet is csinal mint, egy egyszeru raktar, mert tarol, rendszerez es hozzaferest biztosit.
+FTP szerver - fel tudsz tenni fajlokat, le tudsz szedni fajlokat de nem tudsz onnan vegrehajtani, tehat FTP szerveren keresztul nem tudsz Java programot futtatni
+Ha egy fajlt modositasz, a modositas elotti verzio elveszik es csak a valoztatas utani verzio marad elerheto.
+
+A Git meg a verzio kezelo rendszerek ezen segit, hogy ha commitelnek egy uj fajlt akkor azt eltarolja, de a regit is megorzi, es hiba eseten vissza lehet allni az elozo verziora
+
+2. Kozpontositott verziokezelo (CVCS - Centralized Version Control System) -> SVN
+   Megosztott verziokezelo (DVCS - Distributed Version Control System) -> Git
+
+	SVN: O mindennek a kozepe, nagy mertekbe fuggenek tole. Ajanlott kb 2-3 orankent lefrissiteni a legujabb verziora, hogy lathassuk ha kerult fel uj verzio. Ha valakinel megszakad a kapcsolat a szerverrel, nem fog hozzaferni az uj verziokhoz es valtoztatasokhoz.
+Ha pl. ugyan azon a projekten dolgoztok egyszerre, es kulobozo sorokat valtoztattok akkor konnyeden osszelehet illeszteni a ket verziot egy uj verziora. Viszont ha ugyan azon valtoztatnak akkor tortenik egy "konfligtus" 
+
+	Git: Letre kell hozni a sajat szamitogepedem egy helyi repository, es ha modositani akarsz valamit akkor nem rogton a kozponti szervernek hanem a sajat repository-nak kuldod el, es igy nem kell internet kapcsolat es lehet dolgozni addig is amig nincs internetkapcsolat. Amikor internethez kerulsz akkor a helyi repodon tudsz egy PUSH requestet kuldeni
+
+3. Arra jo a Git, hogy legyen egy sajat Repository-d es nincsen folyamatosan szukseged egy tavoli-kozponti szerverre, es itt tudsz haladni a projektel
+
+Commandok: cd -> oda iranyit ahova megmondod, pl.: Desktop
+	   cd .. -> Feljebb visz egy konyvtarral
+	   ls/dir -> listazas Linux/Windows
+	   mkdir -> letrehoz egy mappat
+	   cls -> kitorli az eddig kiadott parancsokat
+	   git init -> ez hozza letre a mi helyi konyvtarunkat
+	   git status -> vissza ad informaciot arrol a konyvtarrol ami a letrehozott mappaban van
+
+4.
+Commandok: git add -> hozza ad egy szinpadhoz (Tobb dolgot is fel lehet tenni illetve ki is lehet venni)
+	FONTOS: hogy csak olyan dolgokat commitolj ami a feladathoz hozza tartozik
+	   git commit -m "Patyi" -> git committel commiteled a fajlokat, a -m az az uzenet es a "" kozott van az uzenet
+
+5.
+Commandok: git add '*.txt' -> minden fajl ami .txt-re vegzodik hozzaadja a szinpadhoz
+	   git log -> Kilistazza, hogy milyen commitok tortentek az adott repo-ban
+	   git remote add origin ...-> hozzakot a tavoli szerverhez
+	   git push -u origin master -> -u megjegyzi azt hogy ha PUSH-t adsz ki akkor az az origin master less
+
+6. 
+Commandok: git config --global user.email "" -> email cim beallitasa
+	   git config --global user.name "" -> felhasznalo nev beallitasa 
+	   git pull origin master -> ezzel ker le egy fajlt az origin kapcsolatbol	
+
+7. Git pull origin master -> lehuz az origin kapcsolatbol dolgokat
+Csak akkor tudsz PUSH-olni ha minden a legfrissebb verzio van a gepeden
+	git diff (minden fajl) red.txt(csak annak a mappanak a valtozasait) -> modositasokat tudod megnezni amik tortentek es mindig az elozoleg felcommitolt valtozathoz hasonlitja, es a parancs csak akkor muodik ha meg a fajl nincsen a szinpadon
+	git diff --staged -> ez 
+mar megmutatja azt is ami a szinpadon van
+	git diff --cached
+	git reset -> megmarad a valtoztatas csak leveszi a fajlt a szinpadrol
+	git checkout -- (fajlnev) -> vegleg torli 
+
+8.
+Repoknak lehet kesziteni kulon szobat de nem kotelezo ezek a Branch-ek. Altalaban van egy Master kornyezet amit latnak majd kesobb a felhasznalok es ebben vannak a fob verziok. Van altalaban van egy Dev Branch ahol a fejlesztok taroljak a dolgaikat es ha engedelyt kapnak ra akkor atteszik a Master Branch-be. A sajat Branch-eket nem latja mas csak te. 
+	git branch (nev) -> letrehoz egy branchet
+	git branch -> ezzel tudjuk megnezni melyik branch-ben vagyunk eppen benne
+	git checkout (branch neve) -> es ezzel atvalt arra a branch-re amire szeretnenk
+	git rm (remove) '*.txt' (* = minden) -> mindent kitorol ami .txt (ezzel kitorlodtek, viszont a szinpadra felkerul hogy ezek a fajlok mar nincsenek meg) 
+
+A branchek kozott van egy hierarchia: a Master a fo branch amig azt meg nem valtoztatjuk.
+	git merge (branch neve)-> ami az altalunk letrehozott branche-ben van azt athuzza a Master branch-be
+	git branch -d (branch neve) -> torli azt a branch-et amit kivalasztottunk
+	git push -> fel commitol mindent amit a merge parancsal athuztunk a Master-be
+
+9.
