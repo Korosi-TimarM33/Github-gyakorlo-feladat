@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+   <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #00ffcc;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        p{
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+            .DHCP-image {
+            display: block;
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            margin: 25px auto;
+            border-radius: 8px;
+        }
+        </style>
+</head>
+<body>
+
+    <h1>DHCP – Dynamic Host Configuration Protocol</h1>
+
+    <h2>Mi az a DHCP?</h2>
+
+    <p>
+        A DHCP (Dynamic Host Configuration Protocol) egy olyan hálózati protokoll,
+        amely automatikusan kiosztja a hálózathoz csatlakozó eszközök számára
+        a szükséges hálózati beállításokat.
+    </p>
+
+    <p>
+        Ilyen beállítás például az IP-cím, az alhálózati maszk,
+        az alapértelmezett átjáró és a DNS-szerver címe.
+    </p>
+
+    <h2>Mire használjuk?</h2>
+
+    <p>
+        DHCP nélkül a hálózathoz csatlakozó számítógépeken és más eszközökön
+        kézzel kellene beállítani az IP-címet és a többi hálózati adatot.
+        Nagyobb hálózatok esetén ez sok időt és munkát jelentene.
+    </p>
+
+    <p>
+        A DHCP ezt automatikusan elvégzi, így egyszerűbbé válik a hálózat
+        beállítása és kezelése.
+    </p>
+
+    <h2>Hogyan működik a DHCP?</h2>
+
+    <p>
+        Amikor egy eszköz csatlakozik a hálózathoz, még nincs saját IP-címe.
+        A DHCP-szerver segítségével kérhet és kaphat egy használható IP-címet.
+    </p>
+
+    <p>A folyamat négy fő lépésből áll:</p>
+
+    <ol>
+        <li><strong>DHCP Discover:</strong> az eszköz megkeresi a DHCP-szervert.</li>
+        <li><strong>DHCP Offer:</strong> a DHCP-szerver felajánl egy IP-címet.</li>
+        <li><strong>DHCP Request:</strong> az eszköz jelzi, hogy elfogadja a felajánlott címet.</li>
+        <li><strong>DHCP ACK:</strong> a szerver jóváhagyja a beállításokat.</li>
+    </ol>
+
+    <img src="../Tomi/dhcp_process_explained.jpg"
+    class="DHCP-image"
+         alt="A DHCP kérés folyamata">
+
+    <h2>Egy egyszerű példa</h2>
+
+    <p>
+        Tegyük fel, hogy egy laptop csatlakozik az otthoni Wi-Fi hálózathoz.
+        A laptopnak szüksége van egy IP-címre ahhoz, hogy kommunikálni tudjon
+        a hálózat többi eszközével és az internettel.
+    </p>
+
+    <p>
+        A routerben található DHCP-szerver például a
+        <strong>192.168.1.100</strong> IP-címet adhatja a laptopnak.
+        Emellett megadhatja az alhálózati maszkot, az alapértelmezett átjárót
+        és a DNS-szervert is.
+    </p>
+
+    <h2>DHCP és IP-címek</h2>
+
+    <p>
+        A DHCP általában egy meghatározott IP-címtartományból osztja ki
+        a címeket. Ezt a tartományt DHCP-poolnak nevezzük.
+    </p>
+
+    <p>Például:</p>
+
+    <ul>
+        <li>Hálózat: 192.168.1.0/24</li>
+        <li>DHCP-tartomány: 192.168.1.100 – 192.168.1.200</li>
+        <li>Alapértelmezett átjáró: 192.168.1.1</li>
+        <li>DNS-szerver: 192.168.1.1</li>
+    </ul>
+
+    <h2>DHCP lease</h2>
+
+    <p>
+        A DHCP által kiosztott IP-cím általában nem véglegesen kerül
+        az eszközhöz. A címhez egy úgynevezett bérleti idő, vagyis
+        <strong>lease time</strong> tartozik.
+    </p>
+
+    <p>
+        A bérleti idő lejárta előtt az eszköz megpróbálhatja megújítani
+        az IP-cím használatát. Így az IP-címek hatékonyan újra felhasználhatók.
+    </p>
+
+    <h2>DHCP előnyei</h2>
+
+    <ul>
+        <li>Automatikusan osztja ki az IP-címeket.</li>
+        <li>Kevesebb kézi beállítást igényel.</li>
+        <li>Csökkenti az IP-címek ütközésének lehetőségét.</li>
+        <li>Nagyobb hálózatokban is könnyen használható.</li>
+        <li>A hálózati beállítások központilag kezelhetők.</li>
+    </ul>
+
+    <h2>DHCP a mindennapokban</h2>
+
+    <p>
+        A DHCP-t szinte minden modern számítógépes hálózatban használják.
+        Otthoni hálózatokban általában a router működik DHCP-szerverként.
+        Amikor egy telefon, laptop vagy más eszköz csatlakozik a Wi-Fi-hez,
+        a router automatikusan kiosztja számára a szükséges hálózati adatokat.
+    </p>
+
+    <h2>Összefoglalás</h2>
+
+    <p>
+        A DHCP egy fontos hálózati protokoll, amely megkönnyíti az eszközök
+        hálózati konfigurációját. Automatikusan IP-címet és egyéb hálózati
+        beállításokat biztosít az eszközök számára.
+    </p>
+
+    <p>
+        A DHCP működésének négy fő lépése a
+        <strong>Discover, Offer, Request és ACK</strong>.
+        Ennek köszönhetően a felhasználónak általában nem kell kézzel
+        beállítania az IP-címet, amikor egy eszközt csatlakoztat a hálózathoz.
+    </p>
+    <p>
+        <a href="../../main/main.html">Vissza a főoldalra</a>
+    </p>
+
+</body>
+</html>

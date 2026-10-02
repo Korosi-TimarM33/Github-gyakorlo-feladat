@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemutatkozás // Eppel Gergő</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #00ffcc;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 80px;
+        }
+
+        h1, h2 {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.05);
+        }
+
+        .terminal-header {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .data-label {
+            color: var(--accent-color);
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .pet-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            margin-top: 10px;
+        }
+
+        /* Lebegő visszatérő link jobb alul */
+        .vissza-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+            transition: 0.3s;
+        }
+
+        .vissza-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="terminal-header">> PROFILE_DATA // EPPEL_GERGO</div>
+
+        <h1>Bemutatkozás</h1>
+        
+        <p><span class="data-label">Név:</span> Eppel Gergő</p>
+        <p><span class="data-label">Hobby:</span> Hálózatépítés, Cisco Packet Tracer, Hardverek</p>
+        <p><span class="data-label">Kedvenc sport:</span> Labdarúgás / Edzés</p>
+
+        <h2>Kedvenc állatom</h2>
+        <!-- Tedd be az állatos képet a mappádba és írd be a nevét -->
+        <img src="papagaj.jpg" alt="Kedvenc állatom" class="pet-img">
+        <p style="color: var(--text-muted); margin-top: 10px;">Ez itt a kedvenc állatom, aki hűséges társ a mindennapokban.</p>
+    </div>
+
+    <!-- Visszatérő link a nyitóoldalra (figyelj az útvonalra, ha a main mappában van a főoldal!) -->
+    <a href="../../../main/main.html" class="vissza-link">> [ VISSZA A NYITÓOLDALRA ]</a>
+
+</body>
+</html>
